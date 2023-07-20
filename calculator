@@ -1,14 +1,35 @@
+# Function to calculate the area of a rectangle
 def calculate_rectangle_area(length, width):
     return length * width
 
+# Function to calculate the perimeter of a rectangle
+def calculate_rectangle_perimeter(length, width):
+    return 2 * (length + width)
+
+# Function to check if the rectangle is a square
+def is_square(length, width):
+    return length == width
+
+# Function to display the result
+def display_result(length, width, area, perimeter, is_square):
+    square_str = "a square" if is_square else "not a square"
+    print(f"Rectangle Details:")
+    print(f"Length: {length} units")
+    print(f"Width: {width} units")
+    print(f"Area: {area} square units")
+    print(f"Perimeter: {perimeter} units")
+    print(f"This rectangle is {square_str}.")
+
 def main():
-    print("Rectangle Area Calculator")
+    print("Rectangle Area and Perimeter Calculator")
     length = float(input("Enter the length of the rectangle: "))
     width = float(input("Enter the width of the rectangle: "))
 
     area = calculate_rectangle_area(length, width)
+    perimeter = calculate_rectangle_perimeter(length, width)
+    square = is_square(length, width)
 
-    print(f"The area of the rectangle is: {area} square units.")
+    display_result(length, width, area, perimeter, square)
 
 if __name__ == "__main__":
     main()
