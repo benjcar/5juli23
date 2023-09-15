@@ -1,16 +1,11 @@
-# Function to calculate the area of a rectangle
-def calculate_rectangle_area(length, width):
-    return length * width
+def calculate_rectangle(length, width):
+    if length <= 0 or width <= 0:
+        raise ValueError("Length and width must be positive numbers.")
+    area = length * width
+    perimeter = 2 * (length + width)
+    is_square = length == width
+    return area, perimeter, is_square
 
-# Function to calculate the perimeter of a rectangle
-def calculate_rectangle_perimeter(length, width):
-    return 2 * (length + width)
-
-# Function to check if the rectangle is a square
-def is_square(length, width):
-    return length == width
-
-# Function to display the result
 def display_result(length, width, area, perimeter, is_square):
     square_str = "a square" if is_square else "not a square"
     print(f"Rectangle Details:")
@@ -25,11 +20,11 @@ def main():
     length = float(input("Enter the length of the rectangle: "))
     width = float(input("Enter the width of the rectangle: "))
 
-    area = calculate_rectangle_area(length, width)
-    perimeter = calculate_rectangle_perimeter(length, width)
-    square = is_square(length, width)
-
-    display_result(length, width, area, perimeter, square)
+    try:
+        area, perimeter, is_square = calculate_rectangle(length, width)
+        display_result(length, width, area, perimeter, is_square)
+    except ValueError as e:
+        print(e)
 
 if __name__ == "__main__":
     main()
